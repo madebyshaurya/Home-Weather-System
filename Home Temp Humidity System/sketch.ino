@@ -50,7 +50,7 @@ void setup() {
 void loop() {
   delay(2000);
 
-  display.clearDisplay()
+  display.clearDisplay();
 
   val = digitalRead(inputPin);  // read input value
   if (val == HIGH) {            // check if the input is HIGH
