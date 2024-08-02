@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "author": "The Bin - Hack Club",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-pi-pico-w", "id": "pico", "top": 303.95, "left": -111.65, "attrs": {} },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "wokwi-pir-motion-sensor-0",
+      "top": 119.2,
+      "left": 11.82,
+      "attrs": {}
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "board-ssd1306-0",
+      "top": 387.14,
+      "left": 77.03,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "wokwi-dht22-0",
+      "top": 214.2,
+      "left": 66.3,
+      "rotate": 90,
+      "attrs": { "humidity": "72.5", "temperature": "19.1" }
+    },
+    { "type": "wokwi-buzzer", "id": "wokwi-buzzer-0", "top": 156, "left": -247.8, "attrs": {} },
+    {
+      "type": "wokwi-max7219-matrix",
+      "id": "wokwi-max7219-matrix-0",
+      "top": 307.8,
+      "left": -312.99,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+    [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+    [ "wokwi-dht22-0:GND", "pico:GND.7", "black", [ "h0", "v48" ] ],
+    [ "wokwi-dht22-0:SDA", "pico:GP18", "green", [ "h-19.2", "v105.7" ] ],
+    [ "board-ssd1306-0:GND", "pico:GND.8", "black", [ "v-28.8" ] ],
+    [
+      "board-ssd1306-0:SCL",
+      "pico:GP5",
+      "green",
+      [ "v-48", "h57.9", "v-115.2", "h-355.2", "v105.6" ]
+    ],
+    [
+      "board-ssd1306-0:SDA",
+      "pico:GP4",
+      "green",
+      [ "v-28.8", "h57.67", "v-144", "h-374.4", "v144" ]
+    ],
+    [ "board-ssd1306-0:VCC", "pico:VBUS", "red", [ "v0" ] ],
+    [ "wokwi-dht22-0:VCC", "pico:3V3", "red", [ "h-48", "v96" ] ],
+    [ "wokwi-pir-motion-sensor-0:VCC", "pico:3V3", "red", [ "v38.4", "h-48", "v105.6" ] ],
+    [ "wokwi-pir-motion-sensor-0:GND", "pico:GND.1", "black", [ "v28.8", "h-201.86", "v144" ] ],
+    [ "wokwi-pir-motion-sensor-0:OUT", "pico:GP17", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
